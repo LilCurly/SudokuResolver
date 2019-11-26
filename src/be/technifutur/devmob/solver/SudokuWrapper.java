@@ -11,7 +11,6 @@ import java.util.stream.Collectors;
 public class SudokuWrapper {
     private UpdatableSudoku sudoku;
     private Collection<CelluleWrapper> cellCollection;
-    private Map<Integer, Collection<CelluleWrapper>> lineMap;
 
     public SudokuWrapper(UpdatableSudoku sudoku) {
         this.sudoku = sudoku;
@@ -72,7 +71,7 @@ public class SudokuWrapper {
 
         public CelluleWrapper(Position p, Set<Character> possibilites) {
             this.position = p;
-            this.possibilites = Set.copyOf(possibilites);
+            this.possibilites = new HashSet<>(possibilites);
         }
 
         public CelluleWrapper(Position p, char value) {
